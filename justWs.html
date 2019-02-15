@@ -1,0 +1,15 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<script>
+  let ws = new WebSocket('ws://localhost:8000');
+  console.log(ws)
+
+  ws.onopen = (event) => {
+    ws.send('This string appears in webserver console')
+  }
+  
+  ws.onmessage = (event) => {
+    console.log(event);
+  }
+
+</script>
