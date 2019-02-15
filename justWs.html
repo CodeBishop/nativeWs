@@ -5,11 +5,12 @@
   console.log(ws)
 
   ws.onopen = (event) => {
-    ws.send('This string appears in webserver console')
+    ws.send('Hello server')
   }
   
   ws.onmessage = (event) => {
-    console.log(event);
+    ws.send('Server said ' + event.data)
+    console.log('Server said ' + event.data);
   }
 
 </script>

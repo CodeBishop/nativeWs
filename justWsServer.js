@@ -11,10 +11,11 @@ wsServer.on('headers', (headers, req) => {
 })
 
 wsServer.on('connection', (wsSocket, req) => {
-  wsSocket.send('Run the server then open justWs.html. F12->Console and this string should be in the Message.')
+  wsSocket.send('Hi Client.')
   wsSocket.on('message', (msg) => {
-    console.log(msg);
-})
+    wsSocket.send('Client said ' + msg)
+    console.log('Client said ' + msg);
+  })
 })
 
 httpServer.listen(8000)
